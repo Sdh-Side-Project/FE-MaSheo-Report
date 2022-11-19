@@ -18,6 +18,7 @@ module.exports = {
         'gradient-xy': 'gradient-xy 3s ease infinite',
         wiggle: 'wiggle 2s ease-in-out infinite',
         bounce: 'bounce 1.5s infinite',
+        rotate: 'rotate 10s ease-in-out 1',
       },
       keyframes: {
         'gradient-y': {
@@ -62,6 +63,20 @@ module.exports = {
           '50%': {
             transform: 'translateY(0)',
             'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+        rotate: {
+          '0%': {
+            transform: 'rotateX(0deg)',
+          },
+          '50%': {
+            transform: 'rotateX(2736deg)',
+          },
+          '70%': {
+            transform: 'rotateX(2808deg)',
+          },
+          '100%': {
+            transform: 'rotateX(2880deg)',
           },
         },
       },
