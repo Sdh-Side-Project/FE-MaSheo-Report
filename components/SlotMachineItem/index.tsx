@@ -32,7 +32,7 @@ function SlotImage(src: string, idx: number) {
 function SlotMachineItem() {
   return (
     <>
-      <div className="relative w-64 h-64 overflow-hidden">
+      <div className="relative w-64 h-64 overflow-hidden rounded-lg">
         <div className="absolute top-0 left-0 w-64 h-64 m-0 inner-wrapper animate-rotate">
           {soolCategoryImages.map((src: string, idx: number) => SlotImage(src, idx))}
         </div>
