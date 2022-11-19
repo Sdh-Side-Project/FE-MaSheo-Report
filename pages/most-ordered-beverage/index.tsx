@@ -1,6 +1,6 @@
-import React from 'react'
-import Layout from '../../components/layout'
-import SlotMachineItem from '../../components/SlotMachineItem'
+import React from 'react';
+import Layout from '../../components/layout';
+import SlotMachineItem from '../../components/SlotMachineItem';
 
 function index() {
   return (
@@ -9,7 +9,7 @@ function index() {
         <SlotMachineItem />
       </div>
     </Layout>
-  )
+  );
 }
 
-export default index
+export default index;

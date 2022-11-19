@@ -1,5 +1,5 @@
 interface types {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function Layout({ children }: types) {
@@ -35,5 +35,5 @@ export default function Layout({ children }: types) {
         </div>
       </div>
     </div>
-  )
+  );
 }

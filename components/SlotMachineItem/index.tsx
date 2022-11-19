@@ -1,5 +1,5 @@
-import React from 'react'
-import { transform } from 'typescript'
+import React from 'react';
+import { transform } from 'typescript';
 
 const soolCategoryImages: string[] = [
   '/images/soolCategories/takju.png',
@@ -7,7 +7,7 @@ const soolCategoryImages: string[] = [
   '/images/soolCategories/gwashilju.png',
   '/images/soolCategories/jeungryuju.png',
   '/images/soolCategories/gift.png',
-]
+];
 
 function SlotImage(src: string, idx: number) {
   return (
@@ -26,7 +26,7 @@ function SlotImage(src: string, idx: number) {
         `}
       </style>
     </>
-  )
+  );
 }
 
 function SlotMachineItem() {
@@ -47,7 +47,7 @@ function SlotMachineItem() {
         `}
       </style>
     </>
-  )
+  );
 }
 
-export default SlotMachineItem
+export default SlotMachineItem;
