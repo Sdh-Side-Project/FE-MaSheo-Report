@@ -13,5 +13,5 @@ export default function Loading() {
         <div className="text-3xl text-white font-normal">1월부터 11월 까지</div>
       </div>
     </div>
-  )
+  );
 }

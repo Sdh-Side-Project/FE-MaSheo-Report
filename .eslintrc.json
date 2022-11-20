@@ -5,7 +5,11 @@
     "airbnb",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["import", "react-hooks", "prettier"],
+  "plugins": [
+    "import",
+    "react-hooks",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
@@ -13,7 +17,18 @@
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [
       2,
-      { "extensions": [".js", ".jsx", ".svg", "png"] }
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".svg",
+          "png"
+        ]
+      }
+    ],
+    "semi": [
+      2,
+      "always"
     ],
     "react/jsx-props-no-spreading": "off",
     "arrow-body-style": "off",
