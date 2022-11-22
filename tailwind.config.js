@@ -66,7 +66,6 @@ module.exports = {
             'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
           },
         },
-<<<<<<< HEAD
         'rotate-effect': {
           '0%': {
             opacity: '0',
@@ -77,7 +76,8 @@ module.exports = {
             opacity: '1',
             transform: 'rotateY(0deg)',
             perspective: '500px',
-=======
+          }
+        },
         rotate: {
           '0%': {
             transform: 'rotateX(0deg)',
@@ -93,7 +93,6 @@ module.exports = {
           },
           '100%': {
             transform: 'rotateX(2880deg)',
->>>>>>> master
           },
         },
       },
