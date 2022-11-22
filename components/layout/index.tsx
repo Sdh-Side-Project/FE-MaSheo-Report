@@ -4,14 +4,14 @@ interface types {
 
 export default function Layout({ children }: types) {
   return (
-    <div className="w-96 h-screen mx-auto py-5 px-10 bg-[url('/images/bg-image.jpeg')]">
-      <div className="text-white text-center mb-3 font-bold">2022 술담화 마셔보고서</div>
+    <div className="w-96 h-screen mx-auto p-5 bg-[url('/images/bg-image.jpeg')]">
+      <div className="mb-3 font-bold text-center text-white">2022 술담화 마셔보고서</div>
       <div className="bg-[url('/images/bg-content-image.jpg')] h-[90%] p-5">
-        <div className="h-full flex flex-col justify-between">
+        <div className="flex flex-col justify-between h-full">
           <div>
             <div className="text-[1.2rem] font-bold mb-1 text-black">개발팀님이</div>
-            <div className="text-3xl font-extrabold mb-1 text-black">가장 많이</div>
-            <div className="text-3xl font-extrabold mb-1 flex">
+            <div className="mb-1 text-3xl font-extrabold text-black">가장 많이</div>
+            <div className="flex mb-1 text-3xl font-extrabold">
               <div className="mr-[5px]">주문한</div>
               <div className="relative">
                 <div>음식</div>
