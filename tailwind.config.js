@@ -19,6 +19,8 @@ module.exports = {
         wiggle: 'wiggle 2s ease-in-out infinite',
         bounce: 'bounce 1.5s infinite',
         rotate: 'rotate 10s ease-in-out 1',
+        'flip-horizontal-top': 'flip-horizontal-top 1s both 1',
+        'puff-out-center': 'puff-out-center 1s both 1',
       },
       keyframes: {
         'gradient-y': {
@@ -80,6 +82,29 @@ module.exports = {
           },
           '100%': {
             transform: 'rotateX(2880deg)',
+          },
+        },
+        'flip-horizontal-top': {
+          '0%': {
+            transform: 'rotateX(0)',
+          },
+          '90%': {
+            transform: 'rotateX(180deg)',
+          },
+          '100%': {
+            'background-color': 'transparent',
+          },
+        },
+        'puff-out-center': {
+          '0%': {
+            transform: 'scale(1)',
+            filter: 'blur(0px)',
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'scale(2)',
+            filter: 'blur(4px)',
+            opacity: 0,
           },
         },
       },

@@ -60,7 +60,7 @@ function LoginComponent() {
   };
 
   return (
-    <div className="w-full min-h-screen px-5 flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen px-5">
       <div
         className={`mb-8 text-4xl font-bold ${gradientText} ${opacity1} before:from-blue-400 before:to-cyan-400 before:content-['2022']`}
       >
@@ -77,7 +77,7 @@ function LoginComponent() {
         담쟁이인증
       </div>
       <form
-        className="w-full max-w-xs mb-10 flex flex-col items-center gap-6"
+        className="flex flex-col items-center w-full max-w-xs gap-6 mb-10"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative w-full h-8 text-gray-400">
@@ -131,7 +131,7 @@ function LoginComponent() {
         <input
           type="submit"
           value="입장"
-          className="w-48 h-10 mt-4 rounded font-semibold text-white bg-gradient-to-r from-green-400 to-blue-400 hover:from-pink-400 hover:to-yellow-400 hover:cursor-pointer animate-gradient-xy"
+          className="w-48 h-10 mt-4 font-semibold text-white rounded bg-gradient-to-r from-green-400 to-blue-400 hover:from-pink-400 hover:to-yellow-400 hover:cursor-pointer animate-gradient-xy"
         />
       </form>
     </div>
