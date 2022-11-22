@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="h-screen bg-[url('/images/bg-image.jpeg')]">
@@ -32,5 +32,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

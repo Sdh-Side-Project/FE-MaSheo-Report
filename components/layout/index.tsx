@@ -1,5 +1,5 @@
 interface types {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function Layout({ children }: types) {
@@ -20,8 +20,8 @@ export default function Layout({ children }: types) {
               <div className="">은?</div>
             </div>
           </div>
-          <div>{children}</div>
-          <div className="relative w-full h-[60px] p-3 bg-gradient-to-r from-stone-200 via-stone-50 to-white rounded-md	">
+          <div className="h-[50vh]">{children}</div>
+          <div className="relative w-full h-full p-3 rounded-md bg-gradient-to-r from-stone-200 via-stone-50 to-white ">
             <div className="mr-[35px] text-sm font-semibold">
               한 해 동안 5회 이상 먹은 카테고리는 뱃지를 얻을 수 있어요!
             </div>
@@ -35,5 +35,5 @@ export default function Layout({ children }: types) {
         </div>
       </div>
     </div>
-  )
+  );
 }

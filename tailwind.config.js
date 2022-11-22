@@ -19,6 +19,7 @@ module.exports = {
         wiggle: 'wiggle 2s ease-in-out infinite',
         bounce: 'bounce 1.5s infinite',
         'rotate-effect': 'rotate-effect 1.5s 1 both',
+        rotate: 'rotate 10s ease-in-out 1',
       },
       keyframes: {
         'gradient-y': {
@@ -65,6 +66,7 @@ module.exports = {
             'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
           },
         },
+<<<<<<< HEAD
         'rotate-effect': {
           '0%': {
             opacity: '0',
@@ -75,10 +77,27 @@ module.exports = {
             opacity: '1',
             transform: 'rotateY(0deg)',
             perspective: '500px',
+=======
+        rotate: {
+          '0%': {
+            transform: 'rotateX(0deg)',
+          },
+          '50%': {
+            transform: 'rotateX(2736deg)',
+          },
+          '70%': {
+            transform: 'rotateX(2808deg)',
+          },
+          '90%': {
+            transform: 'rotateX(2900deg)',
+          },
+          '100%': {
+            transform: 'rotateX(2880deg)',
+>>>>>>> master
           },
         },
       },
     },
   },
   plugins: [],
-}
+};

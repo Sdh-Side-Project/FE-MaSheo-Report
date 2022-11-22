@@ -1,25 +1,25 @@
-import { gsap } from 'gsap'
-import { RefObject, useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { gsap } from 'gsap';
+import { RefObject, useState, useEffect, useLayoutEffect, useRef } from 'react';
 
 const centerMain = () => {
-  gsap.set('.main', { x: '50%', xPercent: -50, y: '50%', yPercent: -50 })
-}
+  gsap.set('.main', { x: '50%', xPercent: -50, y: '50%', yPercent: -50 });
+};
 
 const ReviewComponent = () => {
-  const [count, setCount] = useState(0)
-  const app = useRef() as RefObject<HTMLDivElement>
-  const tl = useRef<GSAPTimeline>()
+  const [count, setCount] = useState(0);
+  const app = useRef() as RefObject<HTMLDivElement>;
+  const tl = useRef<GSAPTimeline>();
 
   // FIXME: 리렌더링 문제.. gsap으로 바꿔 적용해보기.
   useEffect(() => {
     const incrementCount = () => {
-      if (count === 30) return
-      setCount((prev) => prev + 1)
-    }
+      if (count === 30) return;
+      setCount((prev) => prev + 1);
+    };
 
-    const timer = setTimeout(() => incrementCount(), 100)
-    return () => clearTimeout(timer)
-  }, [count])
+    const timer = setTimeout(() => incrementCount(), 100);
+    return () => clearTimeout(timer);
+  }, [count]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -61,22 +61,22 @@ const ReviewComponent = () => {
             ease: 'power4.inOut',
           },
           0.2
-        )
-    }, app)
+        );
+    }, app);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   window.onmousemove = (e) => {
     let winPercent = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-      distFromCenter = 1 - Math.abs(((e.clientX - window.innerWidth / 2) / window.innerWidth) * 2)
+      distFromCenter = 1 - Math.abs(((e.clientX - window.innerWidth / 2) / window.innerWidth) * 2);
 
     gsap
       .timeline({ defaults: { duration: 0.5, overwrite: 'auto' } })
       .to('.card', { rotation: -7 + 9 * winPercent.x }, 0)
       .to('.fillLight', { opacity: distFromCenter }, 0)
-      .to('.bg', { x: 100 - 200 * winPercent.x, y: 20 - 40 * winPercent.y }, 0)
-  }
+      .to('.bg', { x: 100 - 200 * winPercent.x, y: 20 - 40 * winPercent.y }, 0);
+  };
 
   return (
     <div
@@ -158,7 +158,7 @@ const ReviewComponent = () => {
         </g>
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default ReviewComponent
+export default ReviewComponent;
