@@ -76,7 +76,7 @@ module.exports = {
             opacity: '1',
             transform: 'rotateY(0deg)',
             perspective: '500px',
-          }
+          },
         },
         rotate: {
           '0%': {
