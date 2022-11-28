@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const inputClsn =
   'w-full h-10 outline-0 appearance-none pl-9 pr-2 py-1 border border-gray-300 hover:border-pink-300 rounded leading-none text-black duration-300';
 
 const gradientText =
-  'relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-black to-black before:bg-gradient-to-r before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:z-0 before:bg-clip-text before:transition before:duration-500';
+  'relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-white before:bg-gradient-to-r before:absolute before:top-0 before:right-0 before:bottom-0 before:left-0 before:z-0 before:bg-clip-text before:transition before:duration-500';
 
 const beforeOpacity0 = 'before:opacity-0';
 const beforeOpacity1 = 'before:opacity-1';
 
 function LoginComponent() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const [isSubmit, setIsSubmit] = useState(false);
+
   const [opacity1, setOpacity1] = useState(beforeOpacity0);
   const [opacity2, setOpacity2] = useState(beforeOpacity0);
   const [opacity3, setOpacity3] = useState(beforeOpacity0);
 
-  const persist = 2000;
+  const persist = 1000;
 
   useEffect(() => {
     for (const id of [0, 1, 2]) {
@@ -55,12 +61,42 @@ function LoginComponent() {
     }, idx * persist);
   };
 
-  const onSubmit = (data: any) => {
-    console.debug('@@ data', data);
+  const onSubmit = async (data: any) => {
+    setIsSubmit(() => true);
+    try {
+      const response = await fetch('http://api-side.sooldamhwa.com/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const { data: result, message, statusCode } = await response.json();
+
+      if (statusCode > 399) {
+        throw Error(message);
+      } else {
+        localStorage.setItem('accessToken', result.accessToken);
+        router.replace('/loading');
+      }
+    } catch (error: any) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: { whiteSpace: 'nowrap' },
+        theme: 'light',
+      });
+    }
+    setIsSubmit(() => false);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen px-5">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen px-5 bg-[url('/images/bg-image.jpeg')]">
       <div
         className={`mb-8 text-4xl font-bold ${gradientText} ${opacity1} before:from-blue-400 before:to-cyan-400 before:content-['2022']`}
       >
@@ -131,7 +167,12 @@ function LoginComponent() {
         <input
           type="submit"
           value="입장"
-          className="w-48 h-10 mt-4 font-semibold text-white rounded bg-gradient-to-r from-green-400 to-blue-400 hover:from-pink-400 hover:to-yellow-400 hover:cursor-pointer animate-gradient-xy"
+          disabled={isSubmit}
+          className={`w-48 h-10 mt-4 font-semibold text-white ${
+            isSubmit
+              ? 'disabled:bg-gray-300 disabled:animate-none'
+              : 'bg-gradient-to-r from-green-400 to-blue-400 hover:from-pink-400 hover:to-yellow-400'
+          }  rounded  hover:cursor-pointer animate-gradient-xy`}
         />
       </form>
     </div>

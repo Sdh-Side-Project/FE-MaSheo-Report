@@ -25,7 +25,7 @@ export default function Home() {
         <div className="flex justify-end w-full">
           <button
             className="w-24 h-24 text-2xl text-white rounded-full bg-primary animate-bounce"
-            onClick={() => router.push('/loading')}
+            onClick={() => router.push('/login')}
           >
             시작
           </button>

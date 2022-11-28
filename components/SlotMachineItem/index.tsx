@@ -1,5 +1,4 @@
 import React from 'react';
-import { transform } from 'typescript';
 
 const soolCategoryImages: string[] = [
   '/images/soolCategories/takju.png',
