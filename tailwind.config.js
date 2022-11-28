@@ -20,6 +20,8 @@ module.exports = {
         bounce: 'bounce 1.5s infinite',
         'rotate-effect': 'rotate-effect 1.5s 1 both',
         rotate: 'rotate 10s ease-in-out 1',
+        'star-ani': 'star-ani 3s infinite linear',
+        'bg-ani': 'bg-ani 10s linear infinite',
       },
       keyframes: {
         'gradient-y': {
@@ -76,7 +78,7 @@ module.exports = {
             opacity: '1',
             transform: 'rotateY(0deg)',
             perspective: '500px',
-          }
+          },
         },
         rotate: {
           '0%': {
@@ -95,6 +97,31 @@ module.exports = {
             transform: 'rotateX(2880deg)',
           },
         },
+        'star-ani': {
+          '0%': {
+            transform: 'rotate(315deg) translateX(0)',
+            opacity: '1',
+          },
+          '70%': {
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'rotate(315deg) translateX(-1000px)',
+            opacity: '0',
+          },
+        },
+        'bg-ani': {
+          '0%,100%': {
+            transform: 'scale(1)',
+          },
+          '50%': {
+            transform: 'scale(1.2)',
+          },
+        },
+      },
+      boxShadow: {
+        intro:
+          '0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,1)',
       },
     },
   },
