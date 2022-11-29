@@ -69,7 +69,7 @@ module.exports = {
         },
         rotate: {
           '0%': {
-            transform: 'rotateX(0deg)',
+            transform: 'rotateX(-144deg)',
           },
           '50%': {
             transform: 'rotateX(2736deg)',
