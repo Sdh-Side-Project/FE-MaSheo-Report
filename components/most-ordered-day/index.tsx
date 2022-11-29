@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import Layout from '../layout'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import Layout from '../layout';
+import axios from 'axios';
 
 const WEEK_DAYS = [
   {
@@ -38,48 +38,54 @@ const WEEK_DAYS = [
     KO: '일',
     EN: 'SUN',
   },
-]
+];
 
 const MostOrderedDayComponent = () => {
   const [mostOrderedDay, setMostOrderdedDay] = useState({
     day: '',
     count: '',
-  })
+  });
 
   useEffect(() => {
-    const element = document.getElementsByClassName('day-cards')
+    const element = document.getElementsByClassName('day-cards');
 
     setTimeout(() => {
-      let n = 0
+      let n = 0;
       const interval = setInterval(() => {
-        element[n].classList.add('animate-rotate-effect')
-        n = n + 1
+        element[n].classList.add('animate-rotate-effect');
+        n = n + 1;
 
         if (n >= 7) {
-          clearInterval(interval)
+          clearInterval(interval);
         }
-      }, 400)
-    }, 500)
-  }, [])
+      }, 400);
+    }, 500);
+  }, []);
 
   useEffect(() => {
     const getMostOrderedDay = async () => {
       try {
         const response = await axios(
           'http://api-side.sooldamhwa.com/masheo/most-ordered-day?userId=120'
-        )
+        );
         setTimeout(() => {
-          setMostOrderdedDay(response.data.data.MostOrderedDay)
-        }, 3900)
+          setMostOrderdedDay(response.data.data.MostOrderedDay);
+        }, 3900);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    }
-    getMostOrderedDay()
-  }, [])
+    };
+    getMostOrderedDay();
+  }, []);
 
   return (
-    <Layout>
+    <Layout
+      user={'개발팀'}
+      firstLine={'가장 많이'}
+      keyword={'주문한 요일'}
+      closingLine={'은?'}
+      footerMessage={'여기다가 메시지를 쓰면 됩니다!'}
+    >
       <div className="flex flex-wrap">
         {WEEK_DAYS.map((day) => (
           <div
@@ -115,7 +121,7 @@ const MostOrderedDayComponent = () => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default MostOrderedDayComponent
+export default MostOrderedDayComponent;
