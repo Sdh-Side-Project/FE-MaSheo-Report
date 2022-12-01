@@ -1,3 +1,5 @@
+// import TestNavigation from '../TestNavigation';
+
 interface types {
   user: string;
   firstLine: string;
@@ -41,6 +43,7 @@ export default function Layout({
               className="absolute top-[-10px] right-[-30px]"
             />
           </div>
+          {/* <TestNavigation />  // 테스트시에만 사용*/}
         </div>
       </div>
     </div>
