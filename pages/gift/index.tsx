@@ -18,16 +18,13 @@ export default function index() {
   const [isGiftOpen, setIsGiftOpen] = useState(false);
   const handleClickGift = () => {
     setIsGiftOpen(() => true);
-  }
+  };
 
   return (
     <Layout>
       <div className="flex items-center justify-center h-full">
         {isGiftOpen ? (
-          <img
-            src="/images/gift/gift_open.png"
-            alt="선물"
-          />
+          <img src="/images/gift/gift_open.png" alt="선물" />
         ) : (
           <img
             src="/images/gift/gift_close.png"
