@@ -2,30 +2,30 @@ import { gsap } from 'gsap';
 import { RefObject, useState, useEffect, useLayoutEffect, useRef } from 'react';
 
 const centerMain = () => {
-  gsap.set('.main', { x: '50%', xPercent: -50, y: '50%', yPercent: -50 });
+  gsap.set('.main', { x: '40%', xPercent: -45, y: '10%', yPercent: -25 });
 };
 
-const ReviewComponent = () => {
-  const [count, setCount] = useState(0);
+const ReviewComponent = ({ data }: any) => {
   const app = useRef() as RefObject<HTMLDivElement>;
   const tl = useRef<GSAPTimeline>();
+  const [counter, setCounter] = useState(0);
 
-  // FIXME: 리렌더링 문제.. gsap으로 바꿔 적용해보기.
   useEffect(() => {
     const incrementCount = () => {
-      if (count === 30) return;
-      setCount((prev) => prev + 1);
+      if (counter == data.rate) return;
+      setCounter((prev) => prev + 1);
     };
 
     const timer = setTimeout(() => incrementCount(), 100);
     return () => clearTimeout(timer);
-  }, [count]);
+  }, [counter]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       tl.current = gsap
         .timeline()
-        .set('.title', { x: 22, y: 20 })
+        .set('.orderCountText', { x: 22, y: 25 })
+        .set('.reviewCountText', { x: 22, y: 75 })
         .set('.score', { x: 30, y: 330 })
         .add(centerMain, 0.2)
         .from(
@@ -79,11 +79,8 @@ const ReviewComponent = () => {
   };
 
   return (
-    <div
-      ref={app}
-      className="w-full h-screen flex flex-col justify-center items-center overflow-hidden bg-indigo-500"
-    >
-      <svg width={400} height={650} viewBox="60 150 500 500">
+    <div ref={app} className="h-full resize">
+      <svg viewBox="0 0 550 550" className="w-full h-full">
         <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="85%">
           <stop offset="0%" stopColor="#f5eacc" />
           <stop offset="80%" stopColor="#ffe386" />
@@ -122,7 +119,7 @@ const ReviewComponent = () => {
           <circle className="ball bg" fill="url(#grad3)" cx={250} cy={610} r="160" />
           <g className="card">
             <rect
-              fill="#fff"
+              fill="rgb(99 102 241)"
               stroke="#ccc"
               opacity={0.75}
               strokeWidth="3"
@@ -143,16 +140,18 @@ const ReviewComponent = () => {
               ry={30}
               fillOpacity={0.8}
             />
-            <text x="0" y="0" className="title" fill="rgb(99 102 241)" fontWeight={600}>
-              <tspan x="0" dy="1.2em" fontSize="50">
-                남경님의
-              </tspan>
-              <tspan x="0" dy="1.4em" fontSize="27">
-                주문 대비 리뷰 작성 비율은?
+            <text className="score" fill="#fff" fontWeight={600}>
+              <tspan fontSize="110">{counter}%</tspan>
+            </text>
+            <text x="0" y="0" className="orderCountText" fill="rgb(99 102 241)" fontWeight={600}>
+              <tspan x="0" dy="1.2em" fontSize="35">
+                전체 주문 횟수 <tspan fill="#fff">{data.orderCount}</tspan>
               </tspan>
             </text>
-            <text className="score" fill="#fff" fontWeight={600}>
-              <tspan fontSize="110">{count}%</tspan>
+            <text x="0" y="0" className="reviewCountText" fill="rgb(99 102 241)" fontWeight={600}>
+              <tspan x="0" dy="1.2em" fontSize="35">
+                리뷰 작성 횟수 <tspan fill="#fff">{data.reviewCount}</tspan>
+              </tspan>
             </text>
           </g>
         </g>

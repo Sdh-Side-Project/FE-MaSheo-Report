@@ -18,6 +18,7 @@ module.exports = {
         'gradient-xy': 'gradient-xy 3s ease infinite',
         wiggle: 'wiggle 2s ease-in-out infinite',
         bounce: 'bounce 1.5s infinite',
+        'rotate-effect': 'rotate-effect 1.5s 1 both',
         rotate: 'rotate 10s ease-in-out 1',
         'flip-horizontal-top': 'flip-horizontal-top 1s both 1',
         'puff-out-center': 'puff-out-center 1s both 1',
@@ -65,6 +66,18 @@ module.exports = {
           '50%': {
             transform: 'translateY(0)',
             'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+        'rotate-effect': {
+          '0%': {
+            opacity: '0',
+            transform: 'rotateY(-90deg)',
+            perspective: '500px',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'rotateY(0deg)',
+            perspective: '500px',
           },
         },
         rotate: {
