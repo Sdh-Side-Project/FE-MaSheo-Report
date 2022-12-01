@@ -1,33 +1,26 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { useRecoilState } from 'recoil';
+
 import AutoOpenImage from '../../components/AutoOpenImage';
 import Layout from '../../components/layout';
+import { soolState } from '../../states';
 
-function index({ imgUrl }: { imgUrl: string }) {
+function index() {
+  const [sool, setSool] = useRecoilState(soolState);
+
   return (
-    <Layout>
-      <AutoOpenImage imgUrl={imgUrl} />
+    <Layout
+      user={'개발팀'}
+      firstLine={'가장 많이'}
+      keyword={'주문한 전통주'}
+      closingLine={'는?'}
+      footerMessage={`${sool ? `${sool}을 사랑하시는군요?` : '알아보는중...'}`}
+    >
+      <Suspense fallback={<div>loading...</div>}>
+        <AutoOpenImage setSool={setSool} />
+      </Suspense>
     </Layout>
   );
 }
 
 export default index;
-
-export const getServerSideProps = async () => {
-  const response = await fetch(
-    'http://api-side.sooldamhwa.com/masheo/most-ordered-sool?userId=120'
-  );
-  const {
-    data: {
-      MostOrderedSool: { thumbnail },
-    },
-  } = await response.json();
-
-  return {
-    props: {
-      imgUrl: thumbnail?.replace(
-        'https://sooldamhwa-static-files.s3.ap-northeast-2.amazonaws.com/admin_contents/origin/',
-        'https://d38cxpfv0ljg7q.cloudfront.net/admin_contents/detail/'
-      ),
-    },
-  };
-};
