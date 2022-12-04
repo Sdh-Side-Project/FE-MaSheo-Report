@@ -24,6 +24,8 @@ module.exports = {
         'bg-ani': 'bg-ani 10s linear infinite',
         'content-ani': 'content-ani 3s linear',
         'up-ani': 'up-ani 3s linear',
+        'flip-horizontal-top': 'flip-horizontal-top 1s both 1',
+        'puff-out-center': 'puff-out-center 1s both 1',
       },
       keyframes: {
         'gradient-y': {
@@ -84,7 +86,7 @@ module.exports = {
         },
         rotate: {
           '0%': {
-            transform: 'rotateX(0deg)',
+            transform: 'rotateX(-144deg)',
           },
           '50%': {
             transform: 'rotateX(2736deg)',
@@ -101,7 +103,6 @@ module.exports = {
         },
         'star-ani': {
           '0%': {
-            transform: 'rotate(315deg) translateX(0)',
             opacity: '1',
           },
           '70%': {
@@ -134,6 +135,27 @@ module.exports = {
             'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
           },
         },
+        'flip-horizontal-top': {
+          '0%': {},
+          '90%': {
+            transform: 'rotateX(180deg)',
+          },
+          '100%': {
+            'background-color': 'transparent',
+          },
+        },
+        'puff-out-center': {
+          '0%': {
+            transform: 'scale(1)',
+            filter: 'blur(0px)',
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'scale(2)',
+            filter: 'blur(4px)',
+            opacity: 0,
+          },
+        },
       },
       boxShadow: {
         intro:
@@ -141,5 +163,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 };
