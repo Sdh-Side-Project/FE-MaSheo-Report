@@ -1,16 +1,17 @@
 import { atom } from 'recoil';
+import { v1 } from 'uuid';
 
 export const accessTokenState = atom({
-  key: 'accessToken',
+  key: `accessToken/${v1()}`,
   default: '',
 });
 
 export const soolTypeState = atom({
-  key: 'mostOrderedSoolType',
+  key: `mostOrderedSoolType/${v1()}`,
   default: '',
 });
 
 export const soolState = atom({
-  key: 'mostOrderedSool',
+  key: `mostOrderedSool/${v1()}`,
   default: '',
 });
