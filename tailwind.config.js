@@ -103,6 +103,7 @@ module.exports = {
         },
         'star-ani': {
           '0%': {
+            transform: 'rotate(315deg) translateX(0)',
             opacity: '1',
           },
           '70%': {
