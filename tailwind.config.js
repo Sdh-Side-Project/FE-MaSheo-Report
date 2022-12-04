@@ -20,8 +20,10 @@ module.exports = {
         bounce: 'bounce 1.5s infinite',
         'rotate-effect': 'rotate-effect 1.5s 1 both',
         rotate: 'rotate 10s ease-in-out 1',
-        'star-ani': 'star-ani 3s infinite linear',
+        'star-ani': 'star-ani 6s infinite linear',
         'bg-ani': 'bg-ani 10s linear infinite',
+        'content-ani': 'content-ani 3s linear',
+        'up-ani': 'up-ani 3s linear',
       },
       keyframes: {
         'gradient-y': {
@@ -110,12 +112,26 @@ module.exports = {
             opacity: '0',
           },
         },
-        'bg-ani': {
-          '0%,100%': {
+        'content-ani': {
+          '0%': {
+            transform: 'scale(2)',
+          },
+          '100%': {
             transform: 'scale(1)',
           },
+        },
+        'up-ani': {
+          '0%': {
+            opacity: '0',
+          },
           '50%': {
-            transform: 'scale(1.2)',
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
           },
         },
       },
