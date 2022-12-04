@@ -21,7 +21,13 @@ export default function index() {
   }
 
   return (
-    <Layout>
+    <Layout
+      user={'개발팀'}
+      firstLine={'주문 대비'}
+      keyword={'작성한 리뷰 비율'}
+      closingLine={'은?'}
+      footerMessage={``}
+    >
       <div className="flex items-center justify-center h-full">
         {isGiftOpen ? (
           <img
@@ -32,7 +38,7 @@ export default function index() {
           <img
             src="/images/gift/gift_close.png"
             alt="선물"
-            className="animate__animated animate__shakeX animate__infinite animate__slower cursor-pointer"
+            className="cursor-pointer animate__animated animate__shakeX animate__infinite animate__slower"
             onClick={handleClickGift}
           />
         )}
