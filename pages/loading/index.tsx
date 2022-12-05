@@ -1,4 +1,15 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
 export default function Loading() {
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/most-ordered-beverage');
+    }, 3000);
+  }, []);
+
   return (
     <div className="h-screen bg-[url('/images/bg-image.jpeg')]">
       <div className="flex flex-col justify-center h-full px-10 py-20 mx-auto">
