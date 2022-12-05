@@ -26,6 +26,7 @@ module.exports = {
         'up-ani': 'up-ani 3s linear',
         'flip-horizontal-top': 'flip-horizontal-top 1s both 1',
         'puff-out-center': 'puff-out-center 1s both 1',
+        pulse: 'pulse 2s infinite',
       },
       keyframes: {
         'gradient-y': {
@@ -155,6 +156,19 @@ module.exports = {
             transform: 'scale(2)',
             filter: 'blur(4px)',
             opacity: 0,
+          },
+        },
+        pulse: {
+          '0%': {
+            transform: 'scale(0.8)',
+            'box-shadow': '0 0 0 0 rgba(229, 62, 62, 1)',
+          },
+          '70%': {
+            transform: 'scale(1)',
+            'box-shadow': '0 0 0 60px rgba(229, 62, 62, 0)',
+          },
+          '100%': {
+            transform: 'scale(0.8)',
           },
         },
       },
