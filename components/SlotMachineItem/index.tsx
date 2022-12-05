@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import useSWR from 'swr';
+
+import swrAuthFetcher from '../../api/swrAuthFetcher';
+import { accessTokenState } from '../../states';
 
 const soolCategoryImages = [
   { type: '탁주', url: '/images/soolCategories/takju.png' },
@@ -8,12 +12,6 @@ const soolCategoryImages = [
   { type: '소주', url: '/images/soolCategories/jeungryuju.png' },
   { type: '선물', url: '/images/soolCategories/gift.png' },
 ];
-
-const fetcher = async (url: any) => {
-  const response = await fetch(url);
-  const { data } = await response.json();
-  return data;
-};
 
 function SlotImage(src: string, idx: number) {
   return (
@@ -35,19 +33,34 @@ function SlotImage(src: string, idx: number) {
   );
 }
 
-function SlotMachineItem() {
-  const {
-    data: { soolType },
-    error,
-  } = useSWR('http://api-side.sooldamhwa.com/masheo/most-ordered-sool-type?userId=120', fetcher, {
-    suspense: true,
-  });
+function SlotMachineItem({ setSoolType }: { setSoolType: Function }) {
+  const accessToken = useRecoilValue(accessTokenState);
 
-  if (!soolType) {
+  const { data, error } = useSWR(
+    accessToken ? ['most-ordered-sool-type', accessToken] : null,
+    swrAuthFetcher,
+    {
+      suspense: true,
+    }
+  );
+
+  if (error || !data?.soolType) {
     return <></>;
   }
 
+  const { soolType } = data;
+
+  useEffect(() => {
+    if (soolType) {
+      setSoolType(() => '');
+    }
+    setTimeout(() => setSoolType(() => soolType), 10000);
+  }, []);
+
   const getSortedCategoryImages = (sourceArr: { type: string; url: string }[]) => {
+    if (!soolType) {
+      return [];
+    }
     const targetIndex = sourceArr.findIndex(({ type }) => type === soolType);
     const targetArr = sourceArr.filter(({ type }) => type !== soolType);
     const sortedArr = targetArr.sort(() => Math.random() - 0.5);
