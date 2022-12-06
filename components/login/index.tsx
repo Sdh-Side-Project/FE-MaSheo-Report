@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import { useSetRecoilState } from 'recoil';
+import { accessTokenState } from '../../states';
 
 const inputClsn =
   'w-full h-10 outline-0 appearance-none pl-9 pr-2 py-1 border border-gray-300 hover:border-pink-300 rounded leading-none text-black duration-300';
@@ -22,6 +24,7 @@ function LoginComponent() {
   } = useForm();
 
   const [isSubmit, setIsSubmit] = useState(false);
+  const setAccessToken = useSetRecoilState(accessTokenState);
 
   const [opacity1, setOpacity1] = useState(beforeOpacity0);
   const [opacity2, setOpacity2] = useState(beforeOpacity0);
@@ -76,7 +79,7 @@ function LoginComponent() {
       if (statusCode > 399) {
         throw Error(message);
       } else {
-        localStorage.setItem('accessToken', result.accessToken);
+        setAccessToken(() => result.accessToken);
         router.replace('/loading');
       }
     } catch (error: any) {

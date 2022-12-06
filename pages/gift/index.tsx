@@ -65,7 +65,7 @@ export default function index() {
           <img
             src="/images/gift/gift_close.png"
             alt="선물"
-            className="animate__animated animate__shakeX animate__infinite animate__slower cursor-pointer"
+            className="cursor-pointer animate__animated animate__shakeX animate__infinite animate__slower"
             onClick={handleClickGift}
           />
         )}
