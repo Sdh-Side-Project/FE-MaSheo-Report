@@ -27,6 +27,8 @@ export default function index() {
       keyword={'작성한 리뷰 비율'}
       closingLine={'은?'}
       footerMessage={``}
+      footerImgUrl={''} // '/images/layout/chunhee.png' 천희
+      footerImgName="천희"
     >
       <div className="flex items-center justify-center h-full">
         {isGiftOpen ? (
