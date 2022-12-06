@@ -15,7 +15,7 @@ function index() {
       keyword={'주문한 주종'}
       closingLine={'은?'}
       footerMessage={`${soolType ? `${soolType}를 선호하시는걸로..?` : '취향 찾는중...'}`}
-      footerImgUrl={''} // '/images/layout/yungi.png' 윤기
+      footerImgUrl={'/images/layout/yungi.jpg'}
       footerImgName="윤기"
     >
       <div className="flex items-center justify-center w-full h-full">
