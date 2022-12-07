@@ -4,7 +4,7 @@ const DamhwaDeliveryContainer = () => {
   return (
     <div className="">
       <div className="my-[30%] flex items-center justify-center">
-        <div className="flex items-center justify-center w-[250px] h-[250px] bg-red-600 rounded-full animate-pulse">
+        <div className="flex items-center justify-center w-[250px] h-[250px] bg-[#00dc92] rounded-full animate-custom-pulse">
           <svg
             width="10em"
             height="7em"

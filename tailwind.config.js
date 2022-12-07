@@ -27,6 +27,7 @@ module.exports = {
         'flip-horizontal-top': 'flip-horizontal-top 1s both 1',
         'puff-out-center': 'puff-out-center 1s both 1',
         pulse: 'pulse 2s infinite',
+        'custom-pulse': 'custom-pulse 2s infinite',
       },
       keyframes: {
         'gradient-y': {
@@ -158,10 +159,10 @@ module.exports = {
             opacity: 0,
           },
         },
-        pulse: {
+        'custom-pulse': {
           '0%': {
             transform: 'scale(0.8)',
-            'box-shadow': '0 0 0 0 rgba(229, 62, 62, 1)',
+            'box-shadow': '0 0 0 0 rgba(0, 220, 146, 1)',
           },
           '70%': {
             transform: 'scale(1)',
