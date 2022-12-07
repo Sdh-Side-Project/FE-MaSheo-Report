@@ -1,5 +1,14 @@
+import getSwrAuthResult from '../../utils/getSwrAuthResult';
+import { useState } from 'react';
+
 const DamhwaDeliveryContainer = () => {
-  const orderCount = 3;
+  const { data, error } = getSwrAuthResult('direct-purchase');
+
+  if (error || !data) {
+    return <></>;
+  }
+
+  const { directPurchase } = data;
 
   return (
     <div className="">
@@ -19,7 +28,7 @@ const DamhwaDeliveryContainer = () => {
               textAnchor="middle"
               className="text-white"
             >
-              {orderCount}회
+              {directPurchase[0].orderCount}회
             </text>
           </svg>
         </div>

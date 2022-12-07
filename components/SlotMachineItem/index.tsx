@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import useSWR from 'swr';
 
-import swrAuthFetcher from '../../api/swrAuthFetcher';
-import { accessTokenState } from '../../states';
+import getSwrAuthResult from '../../utils/getSwrAuthResult';
 
 const soolCategoryImages = [
   { type: '탁주', url: '/images/soolCategories/takju.png' },
@@ -34,15 +31,7 @@ function SlotImage(src: string, idx: number) {
 }
 
 function SlotMachineItem({ setSoolType }: { setSoolType: Function }) {
-  const accessToken = useRecoilValue(accessTokenState);
-
-  const { data, error } = useSWR(
-    accessToken ? ['most-ordered-sool-type', accessToken] : null,
-    swrAuthFetcher,
-    {
-      suspense: true,
-    }
-  );
+  const { data, error } = getSwrAuthResult('most-ordered-sool-type');
 
   if (error || !data?.soolType) {
     return <></>;
@@ -69,11 +58,13 @@ function SlotMachineItem({ setSoolType }: { setSoolType: Function }) {
 
   return (
     <>
-      <div className="relative w-64 h-64 overflow-hidden rounded-lg">
-        <div className="absolute top-0 left-0 w-64 h-64 m-0 inner-wrapper animate-rotate">
-          {getSortedCategoryImages(soolCategoryImages).map(({ url }, idx: number) =>
-            SlotImage(url, idx)
-          )}
+      <div className="h-[50vh] flex items-center">
+        <div className="relative w-64 h-64 overflow-hidden rounded-lg">
+          <div className="absolute top-0 left-0 w-64 h-64 m-0 inner-wrapper animate-rotate">
+            {getSortedCategoryImages(soolCategoryImages).map(({ url }, idx: number) =>
+              SlotImage(url, idx)
+            )}
+          </div>
         </div>
       </div>
       <style jsx>

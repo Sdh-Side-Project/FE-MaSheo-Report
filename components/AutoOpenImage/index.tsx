@@ -1,21 +1,14 @@
 import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import useSWR from 'swr';
 
 import OpenCard from './components/OpenCard';
-import swrAuthFetcher from '../../api/swrAuthFetcher';
-import { accessTokenState } from '../../states';
+import getSwrAuthResult from '../../utils/getSwrAuthResult';
+
+const cards = Array.from({ length: 25 })
+  .map((v, i) => i + 1)
+  .sort(() => Math.random() - 0.5);
 
 function AutoOpenImage({ setSool }: { setSool: Function }) {
-  const [accessToken] = useRecoilState(accessTokenState);
-
-  const { data, error } = useSWR(
-    accessToken ? ['most-ordered-sool', accessToken] : null,
-    swrAuthFetcher,
-    {
-      suspense: true,
-    }
-  );
+  const { data, error } = getSwrAuthResult('most-ordered-sool');
 
   if (!data || error) {
     return <></>;
@@ -29,19 +22,19 @@ function AutoOpenImage({ setSool }: { setSool: Function }) {
     if (productName) {
       setSool(() => '');
     }
-    setTimeout(() => setSool(() => productName), 2500);
+
+    setTimeout(() => {
+      setSool(() => productName);
+    }, 2500);
   }, []);
 
   return (
-    <div className="w-full h-full p-2">
+    <div className="w-full h-[50vh] p-2">
       <div className="relative w-full h-full">
         <div className="absolute z-20 grid w-full h-full grid-cols-5">
-          {Array.from({ length: 25 })
-            .map((v, i) => i + 1)
-            .sort(() => Math.random() - 0.5)
-            .map((v) => (
-              <OpenCard key={`open-card-${v}`} idx={v} />
-            ))}
+          {cards.map((v) => (
+            <OpenCard key={`open-card-${v}`} idx={v} />
+          ))}
         </div>
         {thumbnail && (
           <img

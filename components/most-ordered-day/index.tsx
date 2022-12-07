@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
 import Layout from '../layout';
-import axios from 'axios';
+import getSwrAuthResult from '../../utils/getSwrAuthResult';
 
 const WEEK_DAYS = [
   {
@@ -41,18 +42,25 @@ const WEEK_DAYS = [
 ];
 
 const MostOrderedDayComponent = () => {
+  const { data, error } = getSwrAuthResult('most-ordered-day');
+
+  if (error || !data?.MostOrderedDay) {
+    return <></>;
+  }
+
+  const { MostOrderedDay } = data;
+
   const [mostOrderedDay, setMostOrderdedDay] = useState({
     day: '',
     count: '',
   });
 
   useEffect(() => {
-    const element = document.getElementsByClassName('day-cards');
-
     setTimeout(() => {
+      const element = document.getElementsByClassName('day-cards');
       let n = 0;
       const interval = setInterval(() => {
-        element[n].classList.add('animate-rotate-effect');
+        element[n]?.classList?.add('animate-rotate-effect');
         n = n + 1;
 
         if (n >= 7) {
@@ -63,19 +71,9 @@ const MostOrderedDayComponent = () => {
   }, []);
 
   useEffect(() => {
-    const getMostOrderedDay = async () => {
-      try {
-        const response = await axios(
-          'http://api-side.sooldamhwa.com/masheo/most-ordered-day?userId=120'
-        );
-        setTimeout(() => {
-          setMostOrderdedDay(response.data.data.MostOrderedDay);
-        }, 3900);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getMostOrderedDay();
+    setTimeout(() => {
+      setMostOrderdedDay(MostOrderedDay);
+    }, 3900);
   }, []);
 
   return (
