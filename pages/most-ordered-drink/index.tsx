@@ -15,6 +15,8 @@ function index() {
       keyword={'주문한 전통주'}
       closingLine={'는?'}
       footerMessage={`${sool ? `${sool}을 사랑하시는군요?` : '알아보는중...'}`}
+      footerImgUrl={'/images/layout/jihyun.png'}
+      footerImgName="지현"
     >
       <Suspense fallback={<div>loading...</div>}>
         <AutoOpenImage setSool={setSool} />

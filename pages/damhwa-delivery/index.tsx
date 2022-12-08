@@ -10,6 +10,8 @@ const DamhwaDelivery = () => {
       keyword={'담화배송 횟수'}
       closingLine={'는?'}
       footerMessage={`내년에도 담화배송을 잘 부탁해요!`}
+      footerImgUrl={'/images/layout/hyeon.png'}
+      footerImgName="현겸"
     >
       <DamhwaDeliveryContainer />
     </Layout>

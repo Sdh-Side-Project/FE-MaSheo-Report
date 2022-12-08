@@ -32,6 +32,8 @@ const Review = () => {
       keyword={'작성한 리뷰 비율'}
       closingLine={'은?'}
       footerMessage={``}
+      footerImgUrl={'/images/layout/namkyung.png'}
+      footerImgName="남경"
     >
       <ReviewComponent data={reviewData} />
     </Layout>
