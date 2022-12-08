@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import getSwrAuthResult from '../../utils/getSwrAuthResult';
 
 interface LikeTasteListType {
   [key: string]: number;
 }
 
 const TasteContainer = () => {
-  const [tasteList, setTasteList] = useState<LikeTasteListType>({});
+  const { data, error } = getSwrAuthResult('like-taste');
+
+  if (error || !data?.likeTaste) {
+    return <></>;
+  }
+
+  const { likeTaste } = data;
+
+  const [tasteList, setTasteList] = useState<LikeTasteListType>(likeTaste);
 
   const likeTasteList: LikeTasteListType = {};
   Object.keys(tasteList).forEach((key) => {
@@ -22,14 +31,13 @@ const TasteContainer = () => {
   );
 
   useEffect(() => {
-    const element = document.getElementsByClassName('lists');
-
     setTimeout(() => {
+      const element = document.getElementsByClassName('lists');
       let n = 0;
       const interval = setInterval(() => {
-        element[n].classList.remove('hidden');
-        element[n].classList.add('flex');
-        element[n].classList.add('animate-rotate-effect');
+        element[n]?.classList?.remove('hidden');
+        element[n]?.classList?.add('flex');
+        element[n]?.classList?.add('animate-rotate-effect');
         n = n + 1;
 
         if (n >= 5) {
@@ -37,18 +45,6 @@ const TasteContainer = () => {
         }
       }, 400);
     }, 500);
-  }, []);
-
-  useEffect(() => {
-    const getLikedTasteList = async () => {
-      try {
-        const response = await axios(`${process.env.NEXT_PUBLIC_API}/masheo/like-taste?userId=120`);
-        setTasteList(response.data.data.likeTaste);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getLikedTasteList();
   }, []);
 
   return (

@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { PAGE_URL } from '../../constants';
 
 export default function Loading() {
   const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/most-ordered-beverage');
+      router.push(PAGE_URL.MOST_ORDERED_DAY);
     }, 3000);
   }, []);
 
