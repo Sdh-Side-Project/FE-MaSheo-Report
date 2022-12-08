@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import Layout from '../layout';
 import getSwrAuthResult from '../../utils/getSwrAuthResult';
 
 const WEEK_DAYS = [
@@ -77,48 +76,40 @@ const MostOrderedDayComponent = () => {
   }, []);
 
   return (
-    <Layout
-      user={'개발팀'}
-      firstLine={'가장 많이'}
-      keyword={'주문한 요일'}
-      closingLine={'은?'}
-      footerMessage={'여기다가 메시지를 쓰면 됩니다!'}
-    >
-      <div className="flex flex-wrap">
-        {WEEK_DAYS.map((day) => (
+    <div className="flex flex-wrap">
+      {WEEK_DAYS.map((day) => (
+        <div
+          className={`day-cards h-[100px] mr-[15px] text-center opacity-0 mb-5 rounded-lg`}
+          key={day.id}
+        >
           <div
-            className={`day-cards h-[100px] mr-[15px] text-center opacity-0 mb-5 rounded-lg`}
-            key={day.id}
+            className={`${
+              mostOrderedDay.day[0] === day.KO ? 'bg-pink-400 animate-bounce' : 'bg-white'
+            } rounded-lg shadow-xl h-full`}
           >
-            <div
-              className={`${
-                mostOrderedDay.day[0] === day.KO ? 'bg-pink-400 animate-bounce' : 'bg-white'
-              } rounded-lg shadow-xl h-full`}
-            >
-              <div className="w-[60px] h-full flex-col flex justify-center items-center">
-                <div
-                  className={`${
-                    mostOrderedDay.day[0] === day.KO ? 'text-white' : 'text-pink-300'
-                  } text-[10px] font-medium`}
-                >
-                  {day.EN}
-                </div>
-                <div
-                  className={`${
-                    mostOrderedDay.day[0] === day.KO ? 'text-white' : 'text-pink-400'
-                  }  text-[25px] font-bold`}
-                >
-                  {day.KO}
-                </div>
-                {mostOrderedDay.day[0] === day.KO && (
-                  <div className="text-white text-[10px]">{mostOrderedDay.count}회</div>
-                )}
+            <div className="w-[60px] h-full flex-col flex justify-center items-center">
+              <div
+                className={`${
+                  mostOrderedDay.day[0] === day.KO ? 'text-white' : 'text-pink-300'
+                } text-[10px] font-medium`}
+              >
+                {day.EN}
               </div>
+              <div
+                className={`${
+                  mostOrderedDay.day[0] === day.KO ? 'text-white' : 'text-pink-400'
+                }  text-[25px] font-bold`}
+              >
+                {day.KO}
+              </div>
+              {mostOrderedDay.day[0] === day.KO && (
+                <div className="text-white text-[10px]">{mostOrderedDay.count}회</div>
+              )}
             </div>
           </div>
-        ))}
-      </div>
-    </Layout>
+        </div>
+      ))}
+    </div>
   );
 };
 

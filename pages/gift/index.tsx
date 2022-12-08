@@ -43,6 +43,8 @@ export default function index() {
       keyword={'선물하기'}
       closingLine={'의 비율은?'}
       footerMessage={'여기다가 메시지를 쓰면 됩니다!'}
+      footerImgUrl={'/images/layout/chunhee.png'}
+      footerImgName="천희"
     >
       <div className="flex flex-col items-center justify-center h-full">
         {isGiftOpen ? (

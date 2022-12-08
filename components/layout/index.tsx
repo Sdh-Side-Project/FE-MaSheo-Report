@@ -7,6 +7,8 @@ interface types {
   children: React.ReactNode;
   footerMessage: string;
   closingLine: string;
+  footerImgUrl: string;
+  footerImgName: string;
 }
 
 export default function Layout({
@@ -14,8 +16,10 @@ export default function Layout({
   firstLine,
   keyword,
   children,
+  footerImgUrl = '',
   footerMessage,
   closingLine = '',
+  footerImgName = '',
 }: types) {
   return (
     <div className="w-full max-w-md min-h-screen mx-auto p-5 bg-[url('/images/bg-image.jpeg')]">
@@ -36,12 +40,10 @@ export default function Layout({
           <div className="min-h-[50vh] max-h-[50vh]">{children}</div>
           <div className="relative w-full h-16 p-3 rounded-md bg-gradient-to-r from-stone-200 via-stone-50 to-white ">
             <div className="mr-[35px] text-sm font-semibold">{footerMessage}</div>
-            <img
-              src="/images/memoji2.png"
-              width={80}
-              height={80}
-              className="absolute top-[-10px] right-[-30px]"
-            />
+            <div className="absolute top-[-10px] right-[-30px] flex flex-col items-center">
+              <img src={footerImgUrl} width={70} height={70} />
+              <span className="font-semibold mr-[10px]">{`(${footerImgName})`}</span>
+            </div>
           </div>
         </div>
       </div>
