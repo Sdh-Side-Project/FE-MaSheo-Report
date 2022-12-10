@@ -37,12 +37,12 @@ export default function Layout({
               <div className="">{closingLine}</div>
             </div>
           </div>
-          <div className="min-h-[50vh] max-h-[50vh]">{children}</div>
+          <div className="min-h-[50vh] max-h-[50vh] flex flex-col justify-center">{children}</div>
           <div className="relative w-full h-16 p-3 rounded-md bg-gradient-to-r from-stone-200 via-stone-50 to-white ">
             <div className="mr-[35px] text-sm font-semibold">{footerMessage}</div>
-            <div className="absolute top-[-10px] right-[-30px] flex flex-col items-center">
+            <div className="absolute top-[-17px] right-[-30px] flex flex-col items-center">
               <img src={footerImgUrl} width={70} height={70} />
-              <span className="font-semibold mr-[10px]">{`(${footerImgName})`}</span>
+              <span className="text-[12px] font-medium mr-[10px]">{`${footerImgName}`}</span>
             </div>
           </div>
         </div>
