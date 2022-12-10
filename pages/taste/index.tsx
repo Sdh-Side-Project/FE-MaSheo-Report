@@ -10,7 +10,7 @@ const Taste = () => {
       keyword={'맛의 순위'}
       closingLine={'는?'}
       footerMessage={``}
-      footerImgUrl={''} // '/images/layout/jungwook.png' 정욱
+      footerImgUrl={'/images/layout/jungwook.png'}
       footerImgName="정욱"
     >
       <TasteContainer />
