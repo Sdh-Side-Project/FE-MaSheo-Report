@@ -80,7 +80,7 @@ const ReviewComponent = ({ data }: any) => {
 
   return (
     <div ref={app} className="h-full resize">
-      <svg viewBox="0 0 550 550" className="w-full h-full">
+      <svg viewBox="-40 -50 650 650" className="w-full h-4/5">
         <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="85%">
           <stop offset="0%" stopColor="#f5eacc" />
           <stop offset="80%" stopColor="#ffe386" />
@@ -114,9 +114,9 @@ const ReviewComponent = ({ data }: any) => {
         </pattern>
 
         <g className="main">
-          <circle className="ball bg" fill="url(#grad2)" cx={200} cy={150} r="100" />
-          <circle className="ball bg" fill="url(#grad4)" cx={390} cy={400} r="150" />
-          <circle className="ball bg" fill="url(#grad3)" cx={250} cy={610} r="160" />
+          <circle className="ball bg" fill="url(#grad2)" cx={170} cy={210} r="100" />
+          <circle className="ball bg" fill="url(#grad4)" cx={410} cy={400} r="150" />
+          <circle className="ball bg" fill="url(#grad3)" cx={250} cy={600} r="160" />
           <g className="card">
             <rect
               fill="rgb(99 102 241)"
