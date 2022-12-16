@@ -3,7 +3,7 @@ import { userNameState } from '../../states';
 import BottomNavigation from '../BottomNavigation';
 
 interface types {
-  user: string;
+  user?: string;
   firstLine: string;
   keyword: string;
   children: React.ReactNode;
