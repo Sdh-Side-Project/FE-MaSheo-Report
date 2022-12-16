@@ -5,6 +5,11 @@ export const accessTokenState = atom({
   default: '',
 });
 
+export const userNameState = atom({
+  key: 'userName',
+  default: '',
+});
+
 export const soolTypeState = atom({
   key: 'mostOrderedSoolType',
   default: '',
