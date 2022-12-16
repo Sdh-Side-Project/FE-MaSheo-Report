@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../../components/layout';
 import ReviewComponent from '../../components/review/ReviewComponent';
-import axios from 'axios';
 import getSwrAuthResult from '../../utils/getSwrAuthResult';
 
 const Review = () => {

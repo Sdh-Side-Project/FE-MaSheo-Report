@@ -6,10 +6,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <RecoilRoot>
-      <Component {...pageProps} />
-      <ToastContainer limit={3} />
-    </RecoilRoot>
-  );
+  if (typeof window === undefined) {
+    return <></>;
+  } else {
+    return (
+      <RecoilRoot>
+        <Component {...pageProps} />
+        <ToastContainer limit={3} />
+      </RecoilRoot>
+    );
+  }
 }
