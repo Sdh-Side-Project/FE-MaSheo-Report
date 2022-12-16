@@ -13,7 +13,6 @@ const DamhwaDeliveryContainer = () => {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'올해 이용한'}
       keyword={'담화배송 횟수'}
       closingLine={'는?'}

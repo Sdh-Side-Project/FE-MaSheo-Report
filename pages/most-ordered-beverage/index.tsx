@@ -10,7 +10,6 @@ function index() {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'가장 많이'}
       keyword={'주문한 주종'}
       closingLine={'은?'}

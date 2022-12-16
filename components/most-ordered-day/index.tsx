@@ -104,7 +104,6 @@ const MostOrderedDayComponent = () => {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'가장 많이'}
       keyword={'주문한 요일'}
       closingLine={'은?'}

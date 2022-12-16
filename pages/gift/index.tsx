@@ -60,7 +60,6 @@ export default function index() {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'2022년 주문 중'}
       keyword={'선물하기'}
       closingLine={'의 비율은?'}

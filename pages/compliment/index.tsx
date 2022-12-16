@@ -12,7 +12,6 @@ export default function index() {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'2022년에 받은'}
       keyword={'칭찬'}
       closingLine={'입니다!'}
@@ -20,13 +19,13 @@ export default function index() {
       footerImgUrl={'/images/layout/chunhee.png'}
       footerImgName="천희"
     >
-      <div className="overflow-scroll mt-5">
+      <div className="mt-5 overflow-scroll">
         {data.result[0].map((item: any) => (
           <div className="flex items-center mb-2" key={item.id}>
             <Image src="/icon/person-icon.png" alt="사람 프로필 아이콘" width="25" height="25" />
             <div className="flex items-center">
               <div className="w-0 h-0 border-8 border-transparent border-r-stone-200" />
-              <div className="rounded bg-stone-200 p-1">{item.compliment}</div>
+              <div className="p-1 rounded bg-stone-200">{item.compliment}</div>
             </div>
           </div>
         ))}

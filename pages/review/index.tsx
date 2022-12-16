@@ -43,7 +43,6 @@ const Review = () => {
 
   return (
     <Layout
-      user={'개발팀'}
       firstLine={'주문 대비'}
       keyword={'작성한 리뷰 비율'}
       closingLine={'은?'}
