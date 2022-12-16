@@ -21,7 +21,7 @@ export default function index() {
       footerImgName="천희"
     >
       <div className="overflow-scroll mt-5">
-        {data.result.result[0].map((item: any) => (
+        {data.result[0].map((item: any) => (
           <div className="flex items-center mb-2" key={item.id}>
             <Image src="/icon/person-icon.png" alt="사람 프로필 아이콘" width="25" height="25" />
             <div className="flex items-center">

@@ -6,6 +6,7 @@ export const PAGE_URL = {
   GIFT: '/gift',
   MOST_ORDERED_BEVERAGE: '/most-ordered-beverage',
   REVIEW: '/review',
+  COMPLIMENT: '/compliment',
 };
 
 const PAGE_NAVIGATION = {
@@ -42,6 +43,11 @@ const PAGE_NAVIGATION = {
   REVIEW: {
     URL: PAGE_URL.REVIEW,
     PREV_URL: PAGE_URL.MOST_ORDERED_BEVERAGE,
+    NEXT_URL: PAGE_URL.COMPLIMENT,
+  },
+  COMPLIMENT: {
+    URL: PAGE_URL.COMPLIMENT,
+    PREV_URL: PAGE_URL.REVIEW,
     NEXT_URL: '',
   },
 };
