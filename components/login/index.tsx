@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
-import { accessTokenState } from '../../states';
+import { accessTokenState, userNameState } from '../../states';
 
 const inputClsn =
   'w-full h-10 outline-0 appearance-none pl-9 pr-2 py-1 border border-gray-300 hover:border-pink-300 rounded leading-none text-black duration-300';
@@ -25,6 +25,7 @@ function LoginComponent() {
 
   const [isSubmit, setIsSubmit] = useState(false);
   const setAccessToken = useSetRecoilState(accessTokenState);
+  const setUserName = useSetRecoilState(userNameState);
 
   const [opacity1, setOpacity1] = useState(beforeOpacity0);
   const [opacity2, setOpacity2] = useState(beforeOpacity0);
@@ -80,6 +81,7 @@ function LoginComponent() {
         throw Error(message);
       } else {
         setAccessToken(() => result.accessToken);
+        setUserName(() => result.name);
         router.replace('/loading');
       }
     } catch (error: any) {
