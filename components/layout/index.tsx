@@ -1,3 +1,5 @@
+import { useRecoilValue } from 'recoil';
+import { userNameState } from '../../states';
 import BottomNavigation from '../BottomNavigation';
 
 interface types {
@@ -21,13 +23,17 @@ export default function Layout({
   closingLine = '',
   footerImgName = '',
 }: types) {
+  const useName = useRecoilValue(userNameState);
+
   return (
     <div className="w-full max-w-md min-h-screen mx-auto p-5 bg-[url('/images/bg-image.jpeg')]">
       <div className="mb-3 font-bold text-center text-white">2022 술담화 마셔보고서</div>
       <div className="bg-[url('/images/bg-content-image.jpg')] h-[90%] p-5">
         <div className="flex flex-col justify-between h-full">
           <div>
-            <div className="text-[1.2rem] font-bold mb-1 text-black">{user} 님이</div>
+            <div className="text-[1.2rem] font-bold mb-1 text-black">
+              {user ? user : useName} 님이
+            </div>
             <div className="mb-1 text-3xl font-extrabold text-black">{firstLine}</div>
             <div className="flex mb-1 text-3xl font-extrabold">
               <div className="relative">
