@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+@import url(https://fonts.googleapis.com/css?family=Festive);
+
+.container {
+  max-width: 28rem;
+  height: 90vh;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+
+  h1 {
+    position: absolute;
+    top: 40%;
+    font-size: 150px;
+    font-family: 'Roboto';
+    font-weight: 900;
+    background-image: url(https://c.tenor.com/7k2yASJxRuEAAAAM/stars-twinkling.gif);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-family: 'Festive';
+    font-size: 32px;
+    position: absolute;
+    bottom: 60%;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h3 {
+    font-family: 'Festive';
+    font-size: 20px;
+    position: absolute;
+    padding: 0 20px;
+    line-height: 150%;
+    bottom: 10%;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text {
+    padding: 0 20px;
+  }
+}

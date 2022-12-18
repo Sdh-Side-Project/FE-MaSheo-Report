@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '../../components/layout';
 import getSwrAuthResult from '../../utils/getSwrAuthResult';
 import Image from 'next/image';
+import { useRecoilValue } from 'recoil';
+import { userNameState } from '../../states';
 
 export default function index() {
   const { data, error } = getSwrAuthResult('compliment');
+  const useName = useRecoilValue(userNameState);
 
   if (!data || error) {
     return <></>;
@@ -15,7 +18,7 @@ export default function index() {
       firstLine={'2022년에 받은'}
       keyword={'칭찬'}
       closingLine={'입니다!'}
-      footerMessage={'개발팀님을 응원합니다. 올 한 해 수고 많으셨어요!'}
+      footerMessage={`이렇게 많은 칭찬을 받은 ${useName}님은 2022년에 정말 알차게 잘보내셨군요👍`}
       footerImgUrl={'/images/layout/chunhee.png'}
       footerImgName="천희"
     >

@@ -7,6 +7,8 @@ export const PAGE_URL = {
   MOST_ORDERED_BEVERAGE: '/most-ordered-beverage',
   REVIEW: '/review',
   COMPLIMENT: '/compliment',
+  HAPPY_NEW_YEAR: '/happy-new-year',
+  ENDING_CREDIT: '/ending-credit',
 };
 
 const PAGE_NAVIGATION = {
@@ -48,6 +50,16 @@ const PAGE_NAVIGATION = {
   COMPLIMENT: {
     URL: PAGE_URL.COMPLIMENT,
     PREV_URL: PAGE_URL.REVIEW,
+    NEXT_URL: PAGE_URL.HAPPY_NEW_YEAR,
+  },
+  HAPPY_NEW_YEAR: {
+    URL: PAGE_URL.HAPPY_NEW_YEAR,
+    PREV_URL: PAGE_URL.COMPLIMENT,
+    NEXT_URL: PAGE_URL.ENDING_CREDIT,
+  },
+  ENDING_CREDIT: {
+    URL: PAGE_URL.ENDING_CREDIT,
+    PREV_URL: PAGE_URL.HAPPY_NEW_YEAR,
     NEXT_URL: '',
   },
 };
