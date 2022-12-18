@@ -36,7 +36,7 @@ export default function index() {
       }
       if (giftPurchaseRate >= 60) {
         setFooterMessage(
-          '선물을 많이 하셨네요, 산타 할아버지가 직장을 잃겠어요. 고마운 마음씨 감사합니다! :D'
+          '선물을 많이 하셨네요, 산타 할아버지가 직장을 잃겠어요. 고마운 마음씨 감사합니다!'
         );
       }
     }
