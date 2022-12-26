@@ -76,7 +76,7 @@ export default function index() {
             <div className="w-full">
               <div className="w-full bg-gray-200 rounded-full">
                 <div
-                  className="bg-red-600 text-xs rounded-full font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full"
+                  className="bg-red-600 text-xs rounded-full font-medium text-black text-center p-0.5 leading-none rounded-l-full"
                   style={{ width: `${count}%` }}
                 >
                   {count}%
