@@ -75,10 +75,7 @@ export default function Home() {
         <div className="hidden content">
           <div>
             <div className="mb-3 text-2xl text-white animate-up-ani">2022</div>
-            <div className="flex mb-3 text-2 xl ml-9">
-              {/* <div className="mr-1 font-medium text-white underline underline-offset-4">개발팀</div>
-              <div className="text-white">님의</div> */}
-            </div>
+            <div className="flex mb-3 text-2 xl ml-9"></div>
             <div className="flex mb-3 font-bold text-white text-7xl animate-content-ani title">
               <div className="text-gray-300">술</div>
               <div className="text-primary">담</div>
