@@ -2,11 +2,11 @@ const swrAuthFetcher = async (url: string, token: string) => {
   let response;
 
   if (url === 'compliment') {
-    response = await fetch(`http://api-side.sooldamhwa.com/${url}`, {
+    response = await fetch(`${process.env.NEXT_PUBLIC_API}/${url}`, {
       headers: { authorization: `Bearer ${token}` },
     });
   } else {
-    response = await fetch(`http://api-side.sooldamhwa.com/masheo/${url}`, {
+    response = await fetch(`${process.env.NEXT_PUBLIC_API}/masheo/${url}`, {
       headers: { authorization: `Bearer ${token}` },
     });
   }
