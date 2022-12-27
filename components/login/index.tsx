@@ -68,7 +68,7 @@ function LoginComponent() {
   const onSubmit = async (data: any) => {
     setIsSubmit(() => true);
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/login`, {
+      const response = await fetch(`${process.env.API}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
