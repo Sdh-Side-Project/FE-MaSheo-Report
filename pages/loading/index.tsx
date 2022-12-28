@@ -22,7 +22,7 @@ export default function Loading() {
           <div className="animate-[pulse_3s_infinite]">.</div>
           <div className="animate-[pulse_4s_infinite]">.</div>
         </div>
-        <div className="text-3xl font-normal text-white">1월부터 11월 까지</div>
+        <div className="text-3xl font-normal text-white">1월부터 12월 까지</div>
       </div>
     </div>
   );
