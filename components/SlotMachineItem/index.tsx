@@ -43,7 +43,7 @@ function SlotMachineItem({ setSoolType }: { setSoolType: Function }) {
     if (soolType) {
       setSoolType(() => '');
     }
-    setTimeout(() => setSoolType(() => soolType), 10000);
+    setTimeout(() => setSoolType(() => soolType), 5000);
   }, []);
 
   const getSortedCategoryImages = (sourceArr: { type: string; url: string }[]) => {

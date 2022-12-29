@@ -19,7 +19,7 @@ module.exports = {
         wiggle: 'wiggle 2s ease-in-out infinite',
         bounce: 'bounce 1.5s infinite',
         'rotate-effect': 'rotate-effect 1.5s 1 both',
-        rotate: 'rotate 10s ease-in-out 1',
+        rotate: 'rotate 5s ease-in-out 1',
         'star-ani': 'star-ani 6s infinite linear',
         'bg-ani': 'bg-ani 10s linear infinite',
         'content-ani': 'content-ani 3s linear',
